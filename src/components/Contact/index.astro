@@ -1,0 +1,317 @@
+---
+---
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h2>Let's Talk</h2>
+        <p class="subtitle">Feel free to reach out for collaborations or just a friendly hello 👋</p>
+      </div>
+      
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/xkgwbkwe" method="POST">
+        <div class="form-group">
+          <div class="input-container">
+            <input type="email" id="email" name="from_email" required autocomplete="email" />
+            <label for="email">Your Email</label>
+            <div class="input-underline"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-container">
+            <input type="text" id="name" name="from_name" required autocomplete="name" />
+            <label for="name">Your Name</label>
+            <div class="input-underline"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-container">
+            <textarea id="message" name="message" required rows="5"></textarea>
+            <label for="message">Your Message</label>
+            <div class="input-underline"></div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span class="button-content">Send Message</span>
+          <div class="button-loader"></div>
+        </button>
+      </form>
+
+      <div id="form-alert" class="alert" role="alert"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #contact {
+    padding: 60px 0;
+    background: linear-gradient(343.07deg, rgba(132, 59, 206, 0.06) 5.71%, rgba(132, 59, 206, 0) 64.83%);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(23, 23, 33, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(133, 76, 230, 0.3);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-info {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #F2F3F4;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: #B1B2B3;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    position: relative;
+  }
+
+  .input-container {
+    position: relative;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(133, 76, 230, 0.3);
+    border-radius: 12px;
+    color: #F2F3F4;
+    font-size: 15px;
+    transition: all 0.3s ease;
+  }
+
+  label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #B1B2B3;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  textarea ~ label {
+    top: 24px;
+  }
+
+  input:focus ~ label,
+  textarea:focus ~ label,
+  input:not(:placeholder-shown) ~ label,
+  textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 12px;
+    font-size: 14px;
+    padding: 0 4px;
+    background: #171721;
+    color: #854CE6;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #854CE6;
+    box-shadow: 0 0 0 2px rgba(133, 76, 230, 0.2);
+  }
+
+  .input-underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #854CE6;
+    transition: all 0.3s ease;
+  }
+
+  input:focus ~ .input-underline,
+  textarea:focus ~ .input-underline {
+    width: 100%;
+    left: 0;
+  }
+
+  .submit-btn {
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    background: hsla(271, 100%, 50%, 1);
+    background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+    box-shadow: 20px 20px 60px #1F2634;
+    border: none;
+    color: white;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out !important;
+  }
+
+  .submit-btn:hover {
+    transform: scale(1.05);
+    transition: all 0.4s ease-in-out;
+    box-shadow: 20px 20px 60px #1F2634;
+    filter: brightness(1);
+  }
+
+  .button-loader {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .alert {
+    margin-top: 24px;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+
+  .alert.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .alert.success {
+    background: rgba(46, 213, 115, 0.1);
+    color: #2ed573;
+    border: 1px solid rgba(46, 213, 115, 0.3);
+  }
+
+  .alert.error {
+    background: rgba(255, 71, 87, 0.1);
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    #contact {
+      padding: 40px 0;
+    }
+
+    .contact-wrapper {
+      padding: 24px 20px;
+    }
+
+    h2 {
+      font-size: 32px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const submitBtn = form.querySelector('.submit-btn');
+  const buttonContent = submitBtn.querySelector('.button-content');
+  const buttonLoader = submitBtn.querySelector('.button-loader');
+  const formAlert = document.getElementById('form-alert');
+
+  function showLoading(loading) {
+    buttonContent.style.opacity = loading ? '0' : '1';
+    buttonLoader.style.display = loading ? 'block' : 'none';
+    submitBtn.disabled = loading;
+  }
+
+  function showAlert(message, type) {
+    formAlert.textContent = message;
+    formAlert.className = `alert ${type} show`;
+    
+    setTimeout(() => {
+      formAlert.classList.remove('show');
+    }, 5000);
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    showLoading(true);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        showAlert('Message sent successfully! 🎉', 'success');
+        form.reset();
+      } else {
+        throw new Error('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      showAlert(error.message, 'error');
+    } finally {
+      showLoading(false);
+    }
+  });
+
+  // Add floating label behavior
+  const inputs = document.querySelectorAll('input, textarea');
+  inputs.forEach(input => {
+    input.addEventListener('focus', () => {
+      input.parentElement.classList.add('focused');
+    });
+    
+    input.addEventListener('blur', () => {
+      input.parentElement.classList.remove('focused');
+    });
+  });
+</script>

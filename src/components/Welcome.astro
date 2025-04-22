@@ -1,0 +1,41 @@
+---
+import { Bio } from '../data/constants';
+import { Image } from 'astro:assets';
+import Navbar from './Navbar/index.astro';
+import HeroSection from './HeroSection/index.astro';
+import Skills from './Skills/index.astro';
+import Experience from './Experience/index.astro';
+import Projects from './Projects/index.astro';
+import Education from './Education/index.astro';
+import Contact from './Contact/index.astro';
+import Footer from './Footer/index.astro';
+---
+
+<div>
+  <Navbar />
+  <main>
+    <HeroSection />
+    <Skills />
+    <Experience />
+    <Projects />
+    <Education />
+    <Contact />
+  </main>
+  <Footer />
+</div>
+
+<style>
+  main {
+    background: linear-gradient(
+      38.73deg, 
+      rgba(204, 0, 187, 0.15) 0%, 
+      rgba(201, 32, 184, 0) 50%
+    ), 
+    linear-gradient(
+      141.27deg, 
+      rgba(0, 70, 209, 0) 50%, 
+      rgba(0, 70, 209, 0.15) 100%
+    );
+    width: 100%;
+  }
+</style>

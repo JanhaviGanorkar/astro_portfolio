@@ -1,0 +1,143 @@
+---
+import { education } from '../../data/constants';
+
+const educationList = education || [];
+---
+
+<section id="education">
+  <div class="container">
+    <div class="wrapper">
+      <h2>Education</h2>
+      <div class="timeline">
+        {educationList.map((edu) => (
+          <div class="timeline-item">
+            <div class="content">
+              <h3>{edu.school}</h3>
+              <p class="degree">{edu.degree}</p>
+              <p class="date">{edu.date}</p>
+              {edu.grade && <p class="grade">Grade: {edu.grade}</p>}
+              <p class="description">{edu.desc}</p>
+              {edu.skills && (
+                <div class="skills">
+                  {edu.skills.map((skill) => (
+                    <span class="skill">{skill}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #education {
+    padding: 80px 0;
+    background: linear-gradient(343.07deg, rgba(132, 59, 206, 0.06) 5.71%, rgba(132, 59, 206, 0) 64.83%);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 42px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #F2F3F4;
+  }
+
+  .timeline {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .timeline-item {
+    background: rgba(23, 23, 33, 0.8);
+    border: 1px solid rgba(133, 76, 230, 0.3);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .timeline-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .content h3 {
+    color: #854CE6;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .degree {
+    color: #F2F3F4;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .date, .grade {
+    color: #B1B2B3;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .description {
+    color: #B1B2B3;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill {
+    background: rgba(133, 76, 230, 0.1);
+    color: #854CE6;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item {
+      padding: 20px;
+    }
+
+    .content h3 {
+      font-size: 20px;
+    }
+
+    .degree {
+      font-size: 16px;
+    }
+
+    .description {
+      font-size: 14px;
+    }
+  }
+</style>

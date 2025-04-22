@@ -1,0 +1,136 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import ScrollToTop from '../components/ScrollToTop/index.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+}
+
+const { 
+  title = 'Portfolio',
+  description = 'Full Stack Developer Portfolio',
+  keywords = 'Full Stack Development, Web Development, Software Engineering',
+  image = '/images/social-card.jpg'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Janhavi Ganorkar" />
+    
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:type" content="website" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+    <ScrollToTop />
+  </body>
+</html>
+
+<style is:global>
+	:root {
+		--primary-color: #1C1C27;
+		--text-color: #F2F3F4;
+		--scroll-track: #222A35;
+		--scroll-thumb: #575C66;
+		--scroll-hover: #626970;
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		font-family: 'Poppins', sans-serif;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 80px; /* Height of fixed header */
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: var(--primary-color);
+		color: var(--text-color);
+	}
+
+	::-webkit-scrollbar {
+		width: 4px;
+		height: 80px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--scroll-track);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--scroll-thumb);
+		border-radius: 6px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: var(--scroll-hover);
+	}
+
+	/* Animation Classes */
+	.animate-on-scroll {
+		opacity: 0;
+		transform: translateY(20px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	}
+
+	.animate-on-scroll.show {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Skeleton Loading */
+	.skeleton {
+		position: relative;
+		overflow: hidden;
+		background: #2A2D3A;
+	}
+
+	.skeleton::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(133, 76, 230, 0.1), transparent);
+		animation: skeletonLoading 1.5s infinite;
+	}
+
+	.skeleton.loaded::before {
+		display: none;
+	}
+
+	@keyframes skeletonLoading {
+		100% {
+			left: 100%;
+		}
+	}
+</style>

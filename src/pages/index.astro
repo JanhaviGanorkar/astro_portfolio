@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar/index.astro';
+import HeroSection from '../components/HeroSection/index.astro';
+import Skills from '../components/Skills/index.astro';
+import Experience from '../components/Experience/index.astro';
+import Projects from '../components/Projects/index.astro';
+import Education from '../components/Education/index.astro';
+import Achievements from '../components/Achievements/index.astro';
+import Contact from '../components/Contact/index.astro';
+import Footer from '../components/Footer/index.astro';
+import { Bio } from '../data/constants';
+
+// Safe fallbacks for metadata
+const meta = {
+  title: Bio?.name ? `${Bio.name} - Full Stack Developer Portfolio` : 'Portfolio',
+  description: Bio?.description || 'Full Stack Developer Portfolio',
+  keywords: Bio?.skills?.length ? Bio.skills.join(', ') : 'Full Stack Developer, Web Development, Software Engineering',
+  image: '/images/social-card.jpg'
+};
+---
+
+<Layout 
+  title={meta.title}
+  description={meta.description}
+  keywords={meta.keywords}
+  image={meta.image}
+>
+  <main>
+    <Navbar />
+    <HeroSection />
+    <Skills />
+    <Experience />
+    <Projects />
+    <Achievements />
+    <Education />
+    <Contact />
+    <Footer />
+  </main>
+</Layout>
+
+<style>
+  main {
+    background: linear-gradient(
+      38.73deg, 
+      rgba(204, 0, 187, 0.15) 0%, 
+      rgba(201, 32, 184, 0) 50%
+    ), 
+    linear-gradient(
+      141.27deg, 
+      rgba(0, 70, 209, 0) 50%, 
+      rgba(0, 70, 209, 0.15) 100%
+    );
+    width: 100%;
+  }
+</style>
