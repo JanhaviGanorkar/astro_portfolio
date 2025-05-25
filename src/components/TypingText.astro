@@ -1,42 +1,88 @@
 ---
 // TypingText.astro
-const { roles = ["Full Stack Developer", "Frontend Developer", "Backend Developer"] } = Astro.props;
+const { roles = ["Full Stack Developer", "Frontend Developer", "Backend Developer", "Python Teacher"] } = Astro.props;
 ---
 
-<span class="typed-text"></span>
+<span id="typed-text" class="typed-text" data-roles={JSON.stringify(roles)}></span>
 
-<script is:client="load">
-  const roles = {JSON.stringify(roles)};
-  const typedTextSpan = document.querySelector(".typed-text");
-
+<script>
+  // First, let's create a simpler but more reliable typing animation
+  const typedTextSpan = document.getElementById('typed-text');
+  const roles = JSON.parse(typedTextSpan.getAttribute('data-roles') || '[]');
+  
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-
-  function type() {
+  let isWaiting = false;
+  
+  function typeEffect() {
+    if (!typedTextSpan) return;
+    
     const currentRole = roles[roleIndex];
-
+    
     if (isDeleting) {
+      // Deleting text
       typedTextSpan.textContent = currentRole.substring(0, charIndex - 1);
       charIndex--;
     } else {
+      // Typing text
       typedTextSpan.textContent = currentRole.substring(0, charIndex + 1);
       charIndex++;
     }
-
-    let typingSpeed = isDeleting ? 100 : 200;
-
+    
+    // Typing speed - faster when deleting
+    let typingSpeed = isDeleting ? 60 : 120;
+    
+    // Check typing state
     if (!isDeleting && charIndex === currentRole.length) {
-      typingSpeed = 2000;
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      roleIndex = (roleIndex + 1) % roles.length;
+  // Finished typing, wait before deleting
+  typingSpeed = 500; // pause for 1.5 seconds
+  isDeleting = true;
+  isWaiting = true;
+}
+ else if (isDeleting && charIndex === 0) {
+      // Finished deleting, move to next role
       isDeleting = false;
-      typingSpeed = 500;
+      isWaiting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      typingSpeed = 500; // Pause before typing the next word
     }
+    
+    // Schedule next update
+    setTimeout(typeEffect, typingSpeed);
+  }
+  
+  // Start typing effect when the page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typedTextSpan) {
+      setTimeout(typeEffect, 1000);
+    }
+  });
+  
+  // Support for Astro page transitions
+  document.addEventListener('astro:page-load', () => {
+    // Reset state when page changes
+    roleIndex = 0;
+    charIndex = 0;
+    isDeleting = false;
+    isWaiting = false;
+    
+    if (typedTextSpan) {
+      typedTextSpan.textContent = '';
+      setTimeout(typeEffect, 1000);
+    }
+  });
+</script>
 
-    setTimeout(type, typingSpeed);
+<style>
+  .typed-text {
+    color: #854CE6;
+    font-weight: 600;
   }
 
-  type();
-</script>
+  @media (max-width: 768px) {
+    .typed-text {
+      font-size: 0.9em;
+    }
+  }
+</style>

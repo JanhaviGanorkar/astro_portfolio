@@ -27,7 +27,7 @@ import { Bio } from '../../data/constants';
       <a href="#contact">Contact</a>
     </div>
     <div class="github-btn">
-      <a href={Bio.github} class="github_a" target="_blank">Github</a>
+      <a href={Bio.github} class="github_a" target="_blank">Github </a>
     </div>
     <div id="mobile-menu" class="mobile-menu-items">
       <a href="#about">About</a>
@@ -36,14 +36,14 @@ import { Bio } from '../../data/constants';
       <a href="#achievements">Achievements</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
-      <a href={Bio.github} target="_blank" class="github-btn mobile">Github Profile</a>
+      <a href={Bio.github} target="_blank" class="github-btn mobile">Github </a>
     </div>
   </div>
 </nav>
 
 <style>
   nav {
-    background-color: #1C1C27;
+    background-color: transparent;
     height: 80px;
     display: flex;
     align-items: center;
@@ -105,31 +105,33 @@ import { Bio } from '../../data/constants';
     color: #854CE6;
   }
   .github-btn {
-    flex: 1;
-    text-align: center;
-    width: 10%;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 12px;
-    padding: 12px;
-    border-radius: 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    color: #854CE6;
-    border: 1.5px solid #854CE6;
-    background: transparent;
+    border: 1.2px solid #854CE6;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 70%;
+  border-radius: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0 20px;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.6s ease-in-out;
   }
   .github-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(133, 76, 230, 0.2);
+    background-color: #854CE6;
+    color: #ffffff;
+    /* box-shadow: 0 5px 10px rgba(122, 54, 238, 0.2); */
   }
 
 
-  .github_a{
-    text-decoration: none;
-    color: #854CE6;
-  }
+  .github_a {
+  text-decoration: none;
+  color: inherit; /* Inherit color from .github-btn */
+}
+
   
   
   .mobile-menu {
@@ -158,27 +160,35 @@ import { Bio } from '../../data/constants';
       cursor: pointer;
       color: white;
     }
+.mobile-menu-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 100%;
+  padding: 12px 40px 24px 40px;
+  background: rgba(17, 17, 17, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease-in-out;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(-20px);
+  visibility: hidden;
+  pointer-events: none;
+}
 
-    .mobile-menu-items {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 16px;
-      position: absolute;
-      top: 80px;
-      right: 0;
-      width: 100%;
-      padding: 12px 40px 24px 40px;
-      background: rgba(17, 17, 17, 0.95);
-      transition: all 0.3s ease-in-out;
-      border-radius: 0 0 20px 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .mobile-menu-items.open {
-      display: flex;
-    }
-
+.mobile-menu-items.open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: all;
+}
     .mobile-menu-items a {
       color: #fff;
       font-weight: 500;
@@ -200,19 +210,29 @@ import { Bio } from '../../data/constants';
     }
   }
 </style>
-
 <script>
-  const menuButton = document.getElementById('menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = mobileMenu?.querySelectorAll('a');
 
-  menuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('open');
-  });
+    // Toggle mobile menu on button click
+    menuButton?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('open');
+    });
 
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!menuButton?.contains(e.target as Node) && !mobileMenu?.contains(e.target as Node)) {
-      mobileMenu?.classList.remove('open');
-    }
+    // Close menu when clicking on a menu link
+    menuLinks?.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu?.classList.remove('open');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menuButton?.contains(e.target) && !mobileMenu?.contains(e.target)) {
+        mobileMenu?.classList.remove('open');
+      }
+    });
   });
 </script>

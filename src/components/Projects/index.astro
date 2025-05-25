@@ -9,16 +9,10 @@ const projectsList = projects || [];
     <div class="wrapper">
       <h2 class="title">Projects</h2>
       <p class="desc">I have worked on a wide range of projects. Here are some of my projects.</p>
-      
-      <div class="toggle-group">
-        <button class="toggle-button active" data-category="all">All</button>
-        <div class="divider"></div>
-        <button class="toggle-button" data-category="website">WEB SITE</button>
-      </div>
 
       <div class="card-container">
         {projectsList.length > 0 ? projectsList.map((project) => (
-          <div class="project-card" data-category={project.category}>
+          <div class="project-card">
             <img src={project.image || ''} alt={project.title} class="project-image"/>
             <div class="tags">
               {(project.tags || []).map((tag) => (
@@ -89,36 +83,7 @@ const projectsList = projects || [];
     color: #B1B2B3;
   }
 
-  .toggle-group {
-    display: flex;
-    border: 1.5px solid #854CE6;
-    color: #854CE6;
-    font-size: 16px;
-    border-radius: 12px;
-    font-weight: 500;
-    margin: 22px 0;
-    gap: 12px;
-  }
-
-  .toggle-button {
-    padding: 8px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    color: inherit;
-    font-size: inherit;
-  }
-
-  .toggle-button:hover,
-  .toggle-button.active {
-    background: rgba(133, 76, 230, 0.2);
-  }
-
-  .divider {
-    width: 1.5px;
-    background: #854CE6;
-  }
+  /* Filter buttons removed */
 
   .card-container {
     display: flex;
@@ -303,29 +268,5 @@ const projectsList = projects || [];
 </style>
 
 <script>
-  function initProjectFilters() {
-    const buttons = document.querySelectorAll('.toggle-button');
-    const projects = document.querySelectorAll('.project-card');
-
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Update active button
-        buttons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        // Filter projects
-        const category = button.getAttribute('data-category');
-        projects.forEach(project => {
-          if (category === 'all' || project.getAttribute('data-category') === category) {
-            project.style.display = 'block';
-          } else {
-            project.style.display = 'none';
-          }
-        });
-      });
-    });
-  }
-
-  // Initialize on page load
-  document.addEventListener('astro:page-load', initProjectFilters);
+  // Filter functionality removed
 </script>

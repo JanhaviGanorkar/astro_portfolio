@@ -2,6 +2,11 @@
 import { Bio } from '../../data/constants';
 ---
 
+<script>
+  // FontAwesome icons
+  import '@fortawesome/fontawesome-free/css/all.min.css';
+</script>
+
 <footer>
   <div class="footer-wrapper">
     <div class="logo">Janhavi Ganorkar</div>
@@ -15,9 +20,18 @@ import { Bio } from '../../data/constants';
       <a href="#contact">Contact</a>
     </nav>
     <div class="social-links">
-      <a href={Bio.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href={Bio.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href={Bio.twitter} target="_blank" rel="noopener noreferrer">Twitter</a>
+      <a href={Bio.github} target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github"></i>
+        <span class="sr-only">GitHub</span>
+      </a>
+      <a href={Bio.linkedin} target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin-in"></i>
+        <span class="sr-only">LinkedIn</span>
+      </a>
+      <a href={Bio.twitter} target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-twitter"></i>
+        <span class="sr-only">Twitter</span>
+      </a>
     </div>
     <div class="copyright">
       © 2024 Janhavi Ganorkar. All rights reserved.
@@ -75,11 +89,32 @@ import { Bio } from '../../data/constants';
     color: #B1B2B3;
     text-decoration: none;
     transition: all 0.3s ease;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(133, 76, 230, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .social-links a:hover {
     color: #854CE6;
     transform: translateY(-2px);
+    background: rgba(133, 76, 230, 0.2);
+  }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .copyright {
