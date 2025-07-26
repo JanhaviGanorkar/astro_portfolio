@@ -33,7 +33,7 @@ export const experiences = [
     img: "https://www.kodnest.com/wp-content/uploads/2022/12/3.png",
     role: "Python Instructor",
     comunity: "Chai Aur Code",
-    date: "Octomber 2024 - Present",
+    date: "October 2024 - Present",
     desc: "Teach Python programming concepts to 500+ students through interactive online sessions.",
     skills: [
       "Python Programming",
