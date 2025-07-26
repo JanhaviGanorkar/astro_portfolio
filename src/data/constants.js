@@ -71,22 +71,22 @@ export const projects = [
     id: 2,
     title: "Ui",
     date: "February 2024",
-    description: "Animations",
+    description: "A sleek, modern website showcasing smooth, interactive animations and dynamic UI elements that enhance user experience and bring designs to life.",
     image: "social.png",
     tags: ["Django", "HTML", "CSS"],
     github: "https://github.com/JanhaviGanorkar/animated-website",
     link: "https://janhaviganorkar.github.io/animated-website/"
+  },
+  {
+    id: 3,
+    title: "Parta Pay",
+    date: "July 2025",
+    description: "ParataPay helps you easily split expenses, track group spending, and settle up with friends—hassle-free.",
+    image: "split.png",
+    tags: ["React-Router", "Zustand", "React", "Prisma", "Express",],
+    github: "https://github.com/JanhaviGanorkar/pro2-master",
+    link: "https://github.com/JanhaviGanorkar/pro2-master"
   }
-  // {
-  //   id: 3,
-  //   title: "Social Media Website",
-  //   date: "February 2024",
-  //   description: "Social media platform with features for Login, posting, liking, sharing content, and Commenting",
-  //   image: "social.png",
-  //   tags: ["Django", "HTML", "CSS", "Tailwind", "Jinja Templet",],
-  //   github: "https://github.com/JanhaviGanorkar/pro2-master",
-  //   link: "https://github.com/JanhaviGanorkar/pro2-master"
-  // }
 ];
 
 export const education = [
