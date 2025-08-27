@@ -12,7 +12,7 @@ export const Bio = {
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/JanhaviGanorkar",
   resume:
-   "https://drive.google.com/file/d/19DY7zHVTiym-IuHcSjuT7w2EFEpz4ipZ/view",
+   "https://drive.google.com/file/d/1RFZ6HS6kEAdOarUxG-R5RQ6ufmuwFT8L/view?usp=drive_link",
   linkedin: "https://www.linkedin.com/in/janhavi-ganorkar-263752294/",
   twitter: "https://x.com/janhaviganorkar",
   insta: "https://www.instagram.com/itz_janhavi_official/",
@@ -34,7 +34,7 @@ export const experiences = [
     role: "Python Instructor",
     comunity: "Chai Aur Code",
     date: "October 2024 - Present",
-    desc: "Teach Python programming concepts to 500+ students through interactive online sessions.",
+    desc: "Teach Python programming concepts to 200+ students through interactive online sessions.",
     skills: [
       "Python Programming",
       "SQL",
@@ -84,36 +84,40 @@ export const projects = [
     description: "ParataPay helps you easily split expenses, track group spending, and settle up with friends—hassle-free.",
     image: "split.png",
     tags: ["React-Router", "Zustand", "React", "Prisma", "Express",],
-    github: "https://github.com/JanhaviGanorkar/pro2-master",
-    link: "https://github.com/JanhaviGanorkar/pro2-master"
+    github: "https://github.com/Nihal1487/paratapay-forntEnd",
+    link: "https://paratapay.algomasters.site/"
   }
 ];
 
 export const education = [
   {
     id: 0,
-    img: "vmvlogo.jpg",
-    school: "Govenment vidarbh institute of science and humanity",
-    date: "August 2021 - April 2024",
-    desc: "I completed my Bachelor's degree in Computer Science at Govenment vidarbh institute of science and humanity.",
-    degree: "Bachelor of Technology - Bsc",
+    img: "https://www.nuaodisha.com/images/Contents/NuaOdisha-136370-Saraswati-VidyaMandir.png",
+    school: "Bhagyashree Vidyalaya & Junior College, Amravati",
+    desc: "I completed my Class 10 education at Bhagyashree Vidyalaya & Junior College, Amravati.",
+    degree: "Secondary School (Matriculation)",
   },
   {
     id: 1,
-    img: "https://sch.edu.in/wp-content/uploads/2021/11/SCHLOGO.png",
-    school: "Bhagyashree Vidhayalaya & Junior College Amravati",
-    date: "August 2017 - April 2019",
-    desc: "I completed my class 12 high school education at Bhagyashree Vidhayalaya & Junior College Amravati",
-    degree: "Intermediate, Science(PCMB)",
+    // img: "https://sch.edu.in/wp-content/uploads/2021/11/SCHLOGO.png",
+    school: "Bhagyashree Vidyalaya & Junior College, Amravati",
+    desc: "I completed my Class 12 education in the Science stream (PCMB) at Bhagyashree Vidyalaya & Junior College, Amravati.",
+    degree: "Higher Secondary (Science - PCMB)",
   },
   {
     id: 2,
-    img: "https://www.nuaodisha.com/images/Contents/NuaOdisha-136370-Saraswati-VidyaMandir.png",
-    school: "Bhagyashree Vidhayalaya & Junior College Amravati",
-    date: "April 2016 - April 2017",
-    desc: "I completed my class 10 education at Bhagyashree Vidhayalaya & Junior College Amravati.",
-    degree: "Matriculation",
+    // img: "vmvlogo.jpg",
+    school: "Government Vidarbha Institute of Science and Humanities, Amravati",
+    desc: "I completed my Bachelor's degree in Computer Science at the Government Vidarbha Institute of Science and Humanities, Amravati.",
+    degree: "Bachelor of Science in Computer Science",
   },
+  {
+    id: 3,
+    // img: "https://www.nuaodisha.com/images/Contents/NuaOdisha-136370-Saraswati-VidyaMandir.png",
+    school: "Bharatiya Mahavidyalaya College, Amravati",
+    desc: "I am currently pursuing a Master's degree in Computer Science at Bharatiya Mahavidyalaya College, Amravati.",
+    degree: "Master of Science in Computer Science",
+  }
 ];
 
 export const skills = [
@@ -149,36 +153,44 @@ export const skills = [
      
     ],
   },
-  {
-    title: "Backend",
-    skills: [
-      {
-        name: "MySQL",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
-      },
-      {
-        name: "Django",
-        image: "DjangoLogo.png",
-      },
-    ],
-  },
+ {
+  title: "Backend",
+  skills: [
+    {
+      name: "Django",
+      image: "DjangoLogo.png",
+    },
+    {
+      name: "Django REST Framework",
+      image: "DRF.png",
+    },
+    {
+      name: "PostgreSQL",
+      image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg",
+    },
+    {
+      name: "SQLite",
+      image: "https://upload.wikimedia.org/wikipedia/commons/3/38/SQLite370.svg",
+    },
+    {
+      name: "Redis (Caching)",
+      image: "redis.png",
+    },
+  ],
+},
+{
+  title: "Others",
+  skills: [
+    { name: "Git", image: "git.png" },
+    { name: "GitHub", image: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" },
+    { name: "Docker", image: "https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" },
+    { name: "REST API", image: "api.jpg" }
+  ],
+},
  
-  {
-    title: "Others",
-    skills: [
-      {
-        name: "Git",
-        image:
-          "git.png",
-      },
-      {
-        name: "GitHub",
-        image:
-          "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-      },
+  
 
     
-    ],
-  },
+    
+
 ];

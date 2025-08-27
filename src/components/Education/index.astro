@@ -1,7 +1,17 @@
 ---
 import { education } from '../../data/constants';
 
-const educationList = education || [];
+// Define the type for education items, including optional skills
+type EducationItem = {
+  id: number;
+  school: string;
+  desc: string;
+  degree: string;
+  img?: string;
+  skills?: string[];
+};
+
+const educationList: EducationItem[] = education || [];
 ---
 
 <section id="education">
@@ -14,12 +24,12 @@ const educationList = education || [];
             <div class="content">
               <h3>{edu.school}</h3>
               <p class="degree">{edu.degree}</p>
-              <p class="date">{edu.date}</p>
+              {/* <p class="date">{edu.date}</p> */}
               {/* {edu.grade && <p class="grade">Grade: {edu.grade}</p>} */}
               <p class="description">{edu.desc}</p>
               {edu.skills && (
                 <div class="skills">
-                  {edu.skills.map((skill) => (
+                  {edu.skills.map((skill: unknown) => (
                     <span class="skill">{skill}</span>
                   ))}
                 </div>
