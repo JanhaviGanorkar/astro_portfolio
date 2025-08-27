@@ -58,7 +58,4 @@ Contributions are welcome! If you'd like to suggest changes or report issues, pl
 
 🙏 Acknowledgments
 Astro: "Astro documentation"
-
-React: "React documentation"
-
 Tailwind CSS: "Tailwind CSS documentation"
